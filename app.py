@@ -4,13 +4,17 @@ from stats import average, highest, lowest, pass_count
 MARKS = [72, 65, 88, 91, 54]
 def main():
   settings = load_env()
+  passed = sum(1 for mark in MARKS if mark >= 40)
   print(settings["APP_NAME"])
   print("Count :", len(MARKS))
   print("Average:", average(MARKS))
   print("Highest:", highest(MARKS))
   print("Lowest :", lowest(MARKS))
+
   pass_mark = int(settings["PASS_MARK"])
   print("Passed :", pass_count(MARKS, pass_mark), "of", len(MARKS))
+  print("Passed :", passed, "of", len(MARKS))
+
 if __name__ == "__main__":
     main()
 
